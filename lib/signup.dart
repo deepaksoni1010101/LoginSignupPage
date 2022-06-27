@@ -28,7 +28,7 @@ class _MySignUpState extends State<MySignUp> {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.3,
+                  top: MediaQuery.of(context).size.height * 0.2,
                   right: 35,
                   left: 35,
                 ),
