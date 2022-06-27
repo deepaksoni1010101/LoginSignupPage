@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -8,6 +9,11 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+  final _formKey = GlobalKey<FormState>();
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,80 +38,97 @@ class _MyLoginState extends State<MyLogin> {
                   right: 35,
                   left: 35,
                 ),
-                child: Column(
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                          fillColor: const Color.fromARGB(255, 215, 204, 204),
-                          filled: true,
-                          hintText: 'Email',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0))),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    TextField(
-                        obscureText: true,
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        validator: (value) => EmailValidator.validate(value!)
+                            ? null
+                            : "Please enter valid mail",
+                        controller: _emailController,
                         decoration: InputDecoration(
                             fillColor: const Color.fromARGB(255, 215, 204, 204),
                             filled: true,
-                            hintText: 'Password',
+                            hintText: 'Email',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0)))),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Sign In',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.w300),
-                        ),
-                        CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.white,
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.arrow_forward),
-                            ))
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, 'signup');
-                          },
-                          child: const Text(
-                            'Sign Up',
+                                borderRadius: BorderRadius.circular(10.0))),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      TextFormField(
+                          controller: _passwordController,
+                          validator: (value) =>
+                              value!.isEmpty ? "Enter some text" : null,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                              fillColor:
+                                  const Color.fromARGB(255, 215, 204, 204),
+                              filled: true,
+                              hintText: 'Password',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0)))),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Sign In',
                             style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 18,
-                              color: Colors.white,
+                                fontSize: 25, fontWeight: FontWeight.w300),
+                          ),
+                          CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.white,
+                              child: IconButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    print('form is validated');
+                                  } else {
+                                    print('form is not validated');
+                                  }
+                                },
+                                icon: const Icon(Icons.arrow_forward),
+                              ))
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'signup');
+                            },
+                            child: const Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Forget Password',
-                            style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 18,
-                              color: Colors.white,
+                          TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              'Forget Password',
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             )
