@@ -86,8 +86,11 @@ class _MyLoginState extends State<MyLogin> {
                               child: IconButton(
                                 onPressed: () {
                                   if (_formKey.currentState!.validate()) {
+                                    // ignore: avoid_print
                                     print('form is validated');
+                                    Navigator.pushNamed(context, 'homepage');
                                   } else {
+                                    // ignore: avoid_print
                                     print('form is not validated');
                                   }
                                 },
