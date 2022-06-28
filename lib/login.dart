@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -84,8 +85,12 @@ class _MyLoginState extends State<MyLogin> {
                               radius: 30,
                               backgroundColor: Colors.white,
                               child: IconButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
+                                    final prefs =
+                                        await SharedPreferences.getInstance();
+                                    await prefs.setString(
+                                        'username', _emailController.text);
                                     // ignore: avoid_print
                                     print('form is validated');
                                     Navigator.pushNamed(context, 'homepage');
