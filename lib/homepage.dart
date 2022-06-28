@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:loginapp/login.dart';
+import 'package:loginapp/profilepage.dart';
+import 'package:loginapp/settingspage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,11 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final String _username;
+  String _username = '';
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getUsername();
   }
@@ -22,7 +24,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcom $_username'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context,
+                  MaterialPageRoute(builder: (context) => const MyLogin()));
+            },
+            icon: const Icon(Icons.logout),
+          )
+        ],
+        title: Text('Welcome $_username'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 255, 136, 176),
       ),
@@ -43,17 +54,19 @@ class _HomePageState extends State<HomePage> {
               title: Text('Home'),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
-            ),
+                leading: Icon(Icons.account_circle),
+                title: Text('Profile'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfilePage()));
+                }),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Log Out'),
-            )
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()));
+                }),
           ],
         ),
       ),
@@ -63,5 +76,8 @@ class _HomePageState extends State<HomePage> {
   void getUsername() async {
     final prefs = await SharedPreferences.getInstance();
     _username = prefs.getString('username') as String;
+    // ignore: avoid_print
+    print(_username);
+    setState(() {});
   }
 }
