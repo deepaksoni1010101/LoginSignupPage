@@ -142,6 +142,7 @@ class _MySignUpState extends State<MySignUp> {
                                   if (_formkey.currentState!.validate()) {
                                     // ignore: avoid_print
                                     print('Form Is Validated');
+                                    Navigator.pushNamed(context, 'login');
                                   } else {
                                     // ignore: avoid_print
                                     print('Form is Not Validated');
