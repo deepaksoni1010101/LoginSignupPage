@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.logout),
           )
         ],
-        title: Text('Welcome $_username'),
+        title: Text('Home'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 255, 136, 176),
       ),
@@ -42,11 +42,12 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
+              padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
               decoration:
                   BoxDecoration(color: Color.fromARGB(255, 255, 157, 190)),
               child: Text(
-                'Menu',
-                style: TextStyle(color: Colors.white, fontSize: 27),
+                '$_username',
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),
             ListTile(
