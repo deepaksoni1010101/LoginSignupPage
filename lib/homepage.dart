@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.logout),
           )
         ],
-        title: Text('Home'),
+        title: const Text('Home'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 255, 136, 176),
       ),
@@ -42,31 +42,40 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              padding: EdgeInsets.fromLTRB(60, 60, 60, 60),
-              decoration:
-                  BoxDecoration(color: Color.fromARGB(255, 255, 157, 190)),
+              padding: const EdgeInsets.fromLTRB(60, 60, 60, 60),
+              decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 255, 157, 190)),
               child: Text(
+                // ignore: unnecessary_string_interpolations
                 '$_username',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'),
+              // onTap: () {
+              //   Navigator.push(context,
+              //       MaterialPageRoute(builder: (context) => const HomePage()));
+              // }
             ),
             ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Profile'),
+                leading: const Icon(Icons.account_circle),
+                title: const Text('Profile'),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ProfilePage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProfilePage()));
                 }),
             ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SettingsPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsPage()));
                 }),
           ],
         ),

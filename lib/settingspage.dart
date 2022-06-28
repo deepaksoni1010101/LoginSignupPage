@@ -14,7 +14,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: const Text('Settings'),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 255, 136, 176),
+        backgroundColor: const Color.fromARGB(255, 255, 136, 176),
       ),
     );
   }

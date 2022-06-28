@@ -12,7 +12,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 136, 176),
+        backgroundColor: const Color.fromARGB(255, 255, 136, 176),
         title: const Text('Profile'),
         centerTitle: true,
       ),
