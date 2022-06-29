@@ -38,7 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         backgroundColor: Color.fromARGB(255, 255, 124, 168),
                         radius: 108,
                         child: CircleAvatar(
-                          backgroundImage: AssetImage(datalist[index].image),
+                          backgroundImage: NetworkImage(datalist[index].image),
 
                           // NetworkImage(
                           // "https://1.bp.blogspot.com/-W_7SWMP5Rag/YTuyV5XvtUI/AAAAAAAAuUQ/hm6bYcvlFgQqgv1uosog6K8y0dC9eglTQCLcBGAsYHQ/w524-h640/Best-Profile-Pic-For-Boys%2B%25281%2529.jpg"),
