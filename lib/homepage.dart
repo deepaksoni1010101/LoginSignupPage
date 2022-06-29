@@ -22,62 +22,67 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context,
-                  MaterialPageRoute(builder: (context) => const MyLogin()));
-            },
-            icon: const Icon(Icons.logout),
-          )
-        ],
-        title: const Text('Home'),
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 255, 136, 176),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              padding: const EdgeInsets.fromLTRB(60, 60, 60, 60),
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 255, 157, 190)),
-              child: Text(
-                // ignore: unnecessary_string_interpolations
-                '$_username',
-                style: const TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              // onTap: () {
-              //   Navigator.push(context,
-              //       MaterialPageRoute(builder: (context) => const HomePage()));
-              // }
-            ),
-            ListTile(
-                leading: const Icon(Icons.account_circle),
-                title: const Text('Profile'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfilePage()));
-                }),
-            ListTile(
-                leading: const Icon(Icons.settings),
-                title: const Text('Settings'),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SettingsPage()));
-                }),
+    return Container(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('asserts/login2.jpg'), fit: BoxFit.cover)),
+      child: Scaffold(
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context,
+                    MaterialPageRoute(builder: (context) => const MyLogin()));
+              },
+              icon: const Icon(Icons.logout),
+            )
           ],
+          title: const Text('Home'),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 255, 136, 176),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                padding: const EdgeInsets.fromLTRB(60, 60, 60, 60),
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 157, 190)),
+                child: Text(
+                  // ignore: unnecessary_string_interpolations
+                  '$_username',
+                  style: const TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+              const ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+                // onTap: () {
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (context) => const HomePage()));
+                // }
+              ),
+              ListTile(
+                  leading: const Icon(Icons.account_circle),
+                  title: const Text('Profile'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProfilePage()));
+                  }),
+              ListTile(
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Settings'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsPage()));
+                  }),
+            ],
+          ),
         ),
       ),
     );
