@@ -29,13 +29,13 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context,
-                    MaterialPageRoute(builder: (context) => const MyLogin()));
-              },
-              icon: const Icon(Icons.logout),
-            )
+            // IconButton(
+            //   onPressed: () {
+            //     Navigator.pop(context,
+            //         MaterialPageRoute(builder: (context) => const MyLogin()));
+            //   },
+            //   icon: const Icon(Icons.logout),
+            // )
           ],
           title: const Text('Home'),
           centerTitle: true,
@@ -81,6 +81,14 @@ class _HomePageState extends State<HomePage> {
                         MaterialPageRoute(
                             builder: (context) => const SettingsPage()));
                   }),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text('Log Out'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const MyLogin()));
+                },
+              )
             ],
           ),
         ),
