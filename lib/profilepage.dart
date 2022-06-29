@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           body: Center(
             child: Card(
-              elevation: 50,
+              elevation: 100,
               shadowColor: Colors.black,
               color: Color.fromARGB(255, 249, 206, 221),
               child: SizedBox(
