@@ -13,7 +13,9 @@ class _HomePageNavBarState extends State<HomePageNavBar> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("asserts/login2.jpg"), fit: BoxFit.cover)),
+        image: AssetImage("asserts/login2.jpg"),
+        fit: BoxFit.cover,
+      )),
       child: Scaffold(
           floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.pink,
