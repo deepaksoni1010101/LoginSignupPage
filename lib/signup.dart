@@ -25,7 +25,7 @@ class _MySignUpState extends State<MySignUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage('asserts/login2.jpg'), fit: BoxFit.cover)),
       child: Scaffold(

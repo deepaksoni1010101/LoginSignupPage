@@ -16,11 +16,11 @@ class _ProfilePageState extends State<ProfilePage> {
             image: DecorationImage(
                 image: AssetImage('asserts/login2.jpg'), fit: BoxFit.cover)),
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: const Color.fromARGB(255, 255, 136, 176),
-            title: const Text('Profile'),
-            centerTitle: true,
-          ),
+          // appBar: AppBar(
+          //   backgroundColor: const Color.fromARGB(255, 255, 136, 176),
+          //   title: const Text('Profile'),
+          //   centerTitle: true,
+          // ),
           body: Center(
             child: ListView.builder(
               itemCount: datalist.length,
