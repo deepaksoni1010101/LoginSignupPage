@@ -85,15 +85,15 @@ class _HomePageState extends State<HomePage> {
               ]),
         ),
         appBar: AppBar(
-          actions: [
-            // IconButton(
-            //   onPressed: () {
-            //     Navigator.pop(context,
-            //         MaterialPageRoute(builder: (context) => const MyLogin()));
-            //   },
-            //   icon: const Icon(Icons.logout),
-            // )
-          ],
+          // actions: [
+          //   // IconButton(
+          //   //   onPressed: () {
+          //   //     Navigator.pop(context,
+          //   //         MaterialPageRoute(builder: (context) => const MyLogin()));
+          //   //   },
+          //   //   icon: const Icon(Icons.logout),
+          //   // )
+          // ],
           title: const Text('Home'),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 255, 136, 176),
@@ -104,8 +104,8 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               DrawerHeader(
                 padding: const EdgeInsets.fromLTRB(60, 60, 60, 60),
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 157, 190)),
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 255, 157, 190)),
                 child: Text(
                   // ignore: unnecessary_string_interpolations
                   '$_username',

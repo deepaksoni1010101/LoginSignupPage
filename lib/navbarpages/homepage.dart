@@ -31,7 +31,7 @@ void _settingModalBottomSheet(context) {
       context: context,
       builder: (BuildContext bc) {
         return Container(
-          child: new Wrap(
+          child: Wrap(
             children: <Widget>[
               ListTile(
                 leading: Icon(Icons.share_outlined),
